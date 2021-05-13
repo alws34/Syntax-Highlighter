@@ -12,5 +12,4 @@ function format_code() {
         dp.SyntaxHighlighter.BloggerMode();
     dp.SyntaxHighlighter.ClipboardSwf = 'Syntax_Highlight/Scripts/clipboard.swf';
     dp.SyntaxHighlighter.HighlightAll('code'); // actually highlighing
-
 }
