@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <title>Syntax Highlighter</title>
+
+    <link type="text/css" rel="stylesheet" href="Styles/SyntaxHighlighter.css"></link>
+    <!-- <link href="Styles/TestPages.css" rel="stylesheet" type="text/css"> -->
+
+    <script src="jquery-3.5.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <script class="javascript" src="Scripts/shCore.js"></script>
+
+    <!-- painters -->
+    <script class="javascript" src="Scripts/shBrushCSharp.js"></script>
+    <script class="javascript" src="Scripts/shBrushPhp.js"></script>
+    <script class="javascript" src="Scripts/shBrushJScript.js"></script>
+    <script class="javascript" src="Scripts/shBrushJava.js"></script>
+    <script class="javascript" src="Scripts/shBrushVb.js"></script>
+    <script class="javascript" src="Scripts/shBrushSql.js"></script>
+    <script class="javascript" src="Scripts/shBrushXml.js"></script>
+    <script class="javascript" src="Scripts/shBrushDelphi.js"></script>
+    <script class="javascript" src="Scripts/shBrushPython.js"></script>
+    <script class="javascript" src="Scripts/shBrushRuby.js"></script>
+    <script class="javascript" src="Scripts/shBrushCss.js"></script>
+    <script class="javascript" src="Scripts/shBrushCpp.js"></script>
+
+    <script type="text/javascript">
+        window.addEventListener('beforeunload', function(e) {
+            localStorage.clear();
+        });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            let language = localStorage['lang'];
+            let code = localStorage['text_to_highlight'];
+            $('.dp-highlighter').remove(); // make sure there is only one higlighted text at a time.
+            let pre = $('pre[name="code"]') //get pre formatted text area
+            pre.removeClass(); //remove any previous class (classes are determining how to format the code)
+            pre.addClass(language); // add relevant class
+            pre.removeAttr('style');
+            pre.text(code); //insert input text into pre field
+
+            if (window.isBloggerMode == true)
+                dp.SyntaxHighlighter.BloggerMode();
+            dp.SyntaxHighlighter.ClipboardSwf = 'Scripts/clipboard.swf';
+            dp.SyntaxHighlighter.HighlightAll('code'); // actually highlighing
+
+        })
+    </script>
+
+</head>
+
+<body>
+    <div class="layout">
+        <div class="column2">
+            <pre name="code"> <!-- code will be placed here --></pre>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
     <title>Syntax Highlighter</title>
-
+    <a href="/FormatedText.html"></a>
     <link type="text/css" rel="stylesheet" href="Styles/SyntaxHighlighter.css"></link>
     <!-- <link href="Styles/TestPages.css" rel="stylesheet" type="text/css"> -->
 
@@ -30,26 +30,19 @@
 
     <!-- methods -->
     <script>
-        function highlightme() {
-            $('.dp-highlighter').remove(); // make sure there is only one higlighted text at a time.
-            let language = $('#languagesDDL').val() // get selected language
-            let text = $('#codetext').val(); // get text input
-            if (text != '' && language != '-1') {
+        function highlighter() {
+            let language = $('#languagesDDL').val()
+            let code = $('#codetext').val();
 
-                let pre = $('pre[name="code"]') //get pre formatted text area
-                pre.removeClass(); //remove any previous class (classes are determining how to format the code)
-                pre.addClass(language); // add relevant class
-                pre.removeAttr('style');
-                pre.text(text); //insert input text into pre field
+            if (code != '' && language != '-1') {
+                localStorage['text_to_highlight'] = code;
+                localStorage['lang'] = language;
+                window.open('/FormatedText.html', '_blank');
 
-                if (window.isBloggerMode == true)
-                    dp.SyntaxHighlighter.BloggerMode();
-                dp.SyntaxHighlighter.ClipboardSwf = 'Scripts/clipboard.swf';
-                dp.SyntaxHighlighter.HighlightAll('code'); // actually highlighing
             } else {
-                if (text == '' && language == '-1')
+                if (code == '' && language == '-1')
                     alert("please fill out all fields")
-                else if (text == '')
+                else if (code == '')
                     alert("please enter text to format")
                 else if (language == '-1')
                     alert("please select code language to format")
@@ -82,14 +75,7 @@
 		</select>
     </div>
     <div>
-        <button id="higlightBTN" name="higlightBTN" onclick="highlightme()">Highlight</button>
-    </div>
-
-    <div class="layout">
-        <div class="column2">
-            <!-- code to format will be placed here -->
-            <pre name="code"></pre>
-        </div>
+        <button id="higlightBTN" name="higlightBTN" onclick="highlighter()">Highlight</button>
     </div>
 </body>
 
