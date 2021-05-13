@@ -4,7 +4,6 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
     <title>Syntax Highlighter</title>
-    <a href="/FormatedText.html"></a>
     <link type="text/css" rel="stylesheet" href="Styles/SyntaxHighlighter.css"></link>
     <!-- <link href="Styles/TestPages.css" rel="stylesheet" type="text/css"> -->
 
@@ -28,40 +27,7 @@
     <script class="javascript" src="Scripts/shBrushCss.js"></script>
     <script class="javascript" src="Scripts/shBrushCpp.js"></script>
 
-    <!-- methods -->
-    <script>
-        function highlighter() {
-            let language = $('#languagesDDL').val()
-            let code = $('#codetext').val();
-
-            if (code != '' && language != '-1') {
-                localStorage['text_to_highlight'] = code;
-                localStorage['lang'] = language;
-                //window.open('/FormatedText.html', '_blank');
-                var newwin = openOnce('/FormatedText.html', 'MyWindowName');
-            } else {
-                if (code == '' && language == '-1')
-                    alert("please fill out all fields")
-                else if (code == '')
-                    alert("please enter text to format")
-                else if (language == '-1')
-                    alert("please select code language to format")
-            }
-        }
-
-        function openOnce(url, target) {
-            // open a blank "target" window
-            // or get the reference to the existing "target" window
-            var winref = window.open('', target, '', true);
-
-            // if the "target" window was just opened, change its url
-            if (winref.location.href === 'about:blank') {
-                winref.location.href = url;
-            }
-
-            return winref;
-        }
-    </script>
+    <script class="javascript" src="Scripts/highlight_index.js"></script>
 </head>
 
 <body>
