@@ -37,8 +37,8 @@
             if (code != '' && language != '-1') {
                 localStorage['text_to_highlight'] = code;
                 localStorage['lang'] = language;
-                window.open('/FormatedText.html', '_blank');
-
+                //window.open('/FormatedText.html', '_blank');
+                var newwin = openOnce('/FormatedText.html', 'MyWindowName');
             } else {
                 if (code == '' && language == '-1')
                     alert("please fill out all fields")
@@ -47,6 +47,19 @@
                 else if (language == '-1')
                     alert("please select code language to format")
             }
+        }
+
+        function openOnce(url, target) {
+            // open a blank "target" window
+            // or get the reference to the existing "target" window
+            var winref = window.open('', target, '', true);
+
+            // if the "target" window was just opened, change its url
+            if (winref.location.href === 'about:blank') {
+                winref.location.href = url;
+            }
+
+            return winref;
         }
     </script>
 </head>
