@@ -9,6 +9,7 @@
 
     <script src="jquery-3.5.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <!-- core script -->
     <script class="javascript" src="Scripts/shCore.js"></script>
@@ -27,33 +28,42 @@
     <script class="javascript" src="Scripts/shBrushCss.js"></script>
     <script class="javascript" src="Scripts/shBrushCpp.js"></script>
     <script class="javascript" src="Scripts/highlight_index.js"></script>
+
 </head>
 
 <body>
-    <h1>Word Syntax Highlighter</h1>
-    <div>
-        <textarea id="codetext" name="codetextarea" rows="10" cols="100"></textarea>
-    </div>
+    <div class="container center">
+        <h1>Word Syntax Highlighter</h1>
+        <div class="row">
+            <div class="col">
+                <textarea id="codetext" name="codetextarea" rows="10" cols="100"></textarea>
+            </div>
+        </div>
 
-    <div>
-        <select id="languagesDDL">
-                <option value="-1">please select a language</option>
-				<option value="c-sharp">C#</option>
-                <option value="css">CSS</option>
-                <option value="c">C++</option>
-                <option value="delphi">Delphi</option>
-                <option value="java">Java</option>
-                <option value="js">JavaScript</option>
-                <option value="php">PHP</option>
-                <option value="python">Python</option>
-                <option value="ruby">Ruby</option>
-                <option value="sql">SQL</option>
-                <option value="vb">Visual Basic</option>
-                <option value="xml">XML / HTML</option>
-		</select>
-    </div>
-    <div>
-        <button id="higlightBTN" name="higlightBTN" onclick="highlighter()">Highlight</button>
+        <div class="row">
+            <div class="col">
+                <select id="languagesDDL">
+                    <option value="-1">please select a language</option>
+                    <option value="c-sharp">C#</option>
+                    <option value="css">CSS</option>
+                    <option value="c">C++</option>
+                    <option value="delphi">Delphi</option>
+                    <option value="java">Java</option>
+                    <option value="js">JavaScript</option>
+                    <option value="php">PHP</option>
+                    <option value="python">Python</option>
+                    <option value="ruby">Ruby</option>
+                    <option value="sql">SQL</option>
+                    <option value="vb">Visual Basic</option>
+                    <option value="xml">XML / HTML</option>
+            </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <button id="higlightBTN" name="higlightBTN" onclick="highlighter()">Highlight</button>
+            </div>
+        </div>
     </div>
 </body>
 

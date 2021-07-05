@@ -9,6 +9,13 @@
     /* adds a little border on top when controls are hidden */
 }
 
+.center {
+    margin: 0px auto;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}
+
 
 /* clear styles */
 
@@ -73,6 +80,7 @@
 
 .dp-highlighter .columns {
     background-color: #F8F8F8;
+    /* row alternation color*/
     color: gray;
     overflow: hidden;
     width: 100%;
@@ -83,7 +91,8 @@
 }
 
 .dp-highlighter ol li.alt {
-    background-color: #D3D3D3;
+    background-color: #e7e7e7;
+    /* row alternation color*/
     color: inherit;
 }
 
